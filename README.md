@@ -67,3 +67,33 @@ docker kill $(docker ps -aq) && docker rm $(docker ps -aq)
 # Free space
 docker system prune -af --volumes
 ```
+
+## Supabase (Local development)
+
+This project uses Supabase CLI for local backend (Postgres, Auth, Storage, Studio) development.
+
+First, install Supabase CLI via npm:
+
+```bash
+# Or install in this project (already listed in package.json)
+npm install
+```
+
+## [Running Supabase locally](https://supabase.com/docs/guides/local-development/cli/getting-started?queryGroups=platform&platform=npm&queryGroups=access-method&access-method=studio#running-supabase-locally)
+
+Then initialize and start Supabase services (Postgres, Auth, Storage, Studio).
+
+```bash
+# Initialize supabase project (only the first time)
+npx supabase init
+
+# Start local supabase containers
+npx supabase start
+```
+
+Update your .env.local (inside your frontend project) with the local Supabase API URL and anon key printed by supabase start, for example:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOi...
+```
