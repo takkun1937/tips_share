@@ -97,3 +97,7 @@ Update your .env.local (inside your frontend project) with the local Supabase AP
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOi...
 ```
+
+## Link
+
+- [capacitor DOCS](https://capacitorjs.jp/docs/vscode/getting-started)
