@@ -9,6 +9,8 @@ These checks ensure code style and unit tests pass without internet access.
 
 For local development, start the Next.js app with `npm run dev` inside the `frontend` directory.
 
+The frontend is built with **Next.js**, and the backend uses **Supabase** for authentication, database, and other services.
+
 Codex should ignore the `android` and `ios` directories by default when exploring
 or modifying code unless a prompt explicitly instructs otherwise. These folders
 contain the mobile build artifacts generated from the frontend and rarely need
