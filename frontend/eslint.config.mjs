@@ -1,5 +1,5 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
+import storybook from 'eslint-plugin-storybook';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -53,13 +53,7 @@ const eslintConfig = [
 
             // e.g src/features and src/app can import from these shared modules but not the other way around
             {
-              target: [
-                './components',
-                './hooks',
-                './lib',
-                './types',
-                './utils',
-              ],
+              target: ['./components', './lib'],
               from: ['./features', './app'],
             },
           ],
@@ -100,7 +94,7 @@ const eslintConfig = [
       ],
     },
   },
-  ...storybook.configs["flat/recommended"]
+  ...storybook.configs['flat/recommended'],
 ];
 
 export default eslintConfig;
