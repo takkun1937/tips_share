@@ -6,7 +6,9 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "export": "next build && next export",
+    "prettier-write": "npx prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.1",
