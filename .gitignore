@@ -30,3 +30,5 @@ package-lock.json
 # Initialized by cli for local testing
 /supabase
 zap-reports
+
+change.diff
