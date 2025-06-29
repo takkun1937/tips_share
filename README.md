@@ -22,6 +22,21 @@ docker compose -f compose.dev.yaml up
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### OWASP ZAP scan
+
+To run a security scan without starting it every time you launch the frontend,
+use the `zap` service defined in the compose file:
+
+```bash
+# Start the frontend in one terminal
+docker compose -f compose.dev.yaml up
+
+# In another terminal run the scan
+docker compose --profile zap up zap
+```
+
+Reports are written to the `zap-reports/` directory.
+
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
 ## Production

@@ -7,7 +7,7 @@ This repository uses Codex for AI-assisted contributions. All contributors shoul
 - `npx vitest run`
 - `npx playwright test`
 - `npm audit`
-- Optionally, scan the project with OWASP ZAP using the Docker environment.
+- Optionally, run `docker compose --profile zap up zap` to scan with OWASP ZAP (report saved to `zap-reports/`).
 
 For local development, Docker Compose is used as described in the README. Typical steps:
 

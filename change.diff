@@ -1,0 +1,53 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/compose.dev.yaml b/compose.dev.yaml
+index 65d6f7a1db74cfe9cb19cedda8527fcb682d488c..9438fa5027f9a22edd1b4ef20bf99161ea3a5845 100644
+--- a/compose.dev.yaml
++++ b/compose.dev.yaml
+@@ -2,32 +2,44 @@ services:
+   frontend:
+     container_name: frontend
+     build:
+       context: ./frontend
+       dockerfile: dev.Dockerfile
+     # entrypoint: "/bin/bash -c 'npm i && tail -f /dev/null'"
+ 
+     # Set environment variables directly in the compose file
+     # environment:
+     #   ENV_VARIABLE: ${ENV_VARIABLE}
+     #   NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+ 
+     # Set environment variables based on the .env file
+     # env_file:
+     #   - .env
+     volumes:
+       - ./frontend:/frontend
+       # - ./frontend/src:/frontend/src
+       # - ./frontend/public:/frontend/public
+     restart: always
+     ports:
+       - 3000:3000
+     networks:
+       - tips_share_network
+ 
++  zap:
++    image: owasp/zap2docker-stable
++    container_name: zap
++    profiles:
++      - zap
++    command: >
++      zap-baseline.py -t http://frontend:3000 -w zap_report.md -r zap_report.html
++    volumes:
++      - ./zap-reports:/zap/wrk
++    networks:
++      - tips_share_network
++
+   # Add more containers below (nginx, postgres, etc.)
+ 
+ # Define a network, which allows containers to communicate
+ # with each other, by using their container name as a hostname
+ networks:
+   tips_share_network:
+     external: true
+ 
+EOF
+)

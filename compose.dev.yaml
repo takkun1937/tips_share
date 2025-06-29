@@ -24,6 +24,18 @@ services:
     networks:
       - tips_share_network
 
+  zap:
+    image: owasp/zap2docker-stable
+    container_name: zap
+    profiles:
+      - zap
+    command: >
+      zap-baseline.py -t http://frontend:3000 -w zap_report.md -r zap_report.html
+    volumes:
+      - ./zap-reports:/zap/wrk
+    networks:
+      - tips_share_network
+
   # Add more containers below (nginx, postgres, etc.)
 
 # Define a network, which allows containers to communicate
