@@ -72,3 +72,10 @@ respect the following restrictions:
 If your code generation requires changes to these paths or introduces new
 directories, update the ESLint configuration accordingly so that these
 restrictions remain enforced.
+
+## Capacitor mobile build
+
+The frontend will ultimately be released as a mobile app using Capacitor.
+Ensure any generated Next.js code remains compatible with `next export` after
+running `npm run build`. This allows the project to be exported to static files
+for packaging with Capacitor.
